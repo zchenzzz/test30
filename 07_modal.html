@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        #modal {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 250px;
+            background-color: yellow;
+            position: fixed;
+            top: calc(50% - 125px);
+            left: calc(50% - 200px);
+        }
+
+        .box span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            font-size: 15px;
+            cursor: pointer;
+            color: #777;
+        }
+
+    </style>
+</head>
+<body>
+<!--css优先级-->
+<a href="javascript:;" id="open_modal" >弹出模态框</a>
+
+<div id="modal">
+    <div class="box">
+        <a href="javascript:;" id="close_modal">X</a>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var open_modal = document.getElementById('open_modal');
+        var modal = document.getElementById('modal');
+        var close_modal = document.getElementById('close_modal');
+        open_modal.onclick = function () {
+            modal.style.display = 'block';
+        }
+        close_modal.onclick = function () {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

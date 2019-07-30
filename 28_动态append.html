@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <textarea name="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+
+    <ul id="list">
+        <li>
+            <span>xxxzx</span>
+            <a href="" class="destory">删除</a>
+        </li>
+
+    </ul>
+</div>
+
+<script>
+
+    var button = document.getElementsByTagName('button')[0];
+    var textarea = document.getElementsByTagName('textarea')[0];
+    var ul = document.getElementById('list');
+    var destroy = document.getElementsByClassName('destroy');
+
+    button.onclick = function () {
+        var txt = textarea.value;
+
+        if (txt == '') {
+            alert('你必须先填写内容');
+            return false;
+        }
+
+        var li = document.createElement("li");
+        li.innerHTML = "<span>"+txt+"</span><a href='javascript:;' class='destroy'>删除</a>";
+        ul.appendChild(li);
+        // ul.insertBefore(li, ul.children[0]);
+
+		//删除，注意位置
+
+    }
+</script>
+</body>
+</html>

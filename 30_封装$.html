@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo"></div>
+<div></div>
+<div></div>
+<div class="one"></div>
+<div class="one"></div>
+<div class="one"></div>
+<div></div>
+<div></div>
+<div></div>
+<div id="last"></div>
+
+
+<script>
+    function $(str) {
+            var s = str.charAt(0);   //  截取字符串中间指定位置的字符并返回  #
+            var ss = str.substr(1);  // demo
+
+            switch (s) {
+                case "#":
+                    return document.getElementById(ss);
+                    break;
+                case ".":
+                    return document.getElementsByClassName(ss);
+                    break;
+                default :
+                    return document.getElementsByTagName(str);
+            }
+        }
+        // $("#demo").style.backgroundColor = "purple";
+        // $("#last").style.backgroundColor = "purple";
+        var test = $(".one");
+        for (var i = 0; i < test.length; i++) {
+            test[i].style.backgroundColor = "blue";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .success {
+            color: lightgreen;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<input type="text" value="请输入用户名" id="input" class="wrong">
+<span id="msg" class="error">内容必须大于6位</span>
+
+<script>
+
+
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $('input').onfocus = function () {
+        if(this.value = '请输入用户名'){
+            this.value = '';
+        }
+    }
+    $('input').onblur = function () {
+        if (this.value == '') {
+            this.value = '请输入用户名';
+        }
+        if (this.value.length > 6) {
+            $('msg').className = 'success';
+            $('msg').innerHTML = '填写正确';
+        } else {
+            $('msg').className = 'error';
+            $('msg').innerHTML = '内容必须大于6位';
+        }
+    }
+</script>
+
+</body>
+</html>

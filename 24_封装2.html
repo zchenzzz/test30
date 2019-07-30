@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #08c;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div ></div>
+<div class="demo xxx bbb aa"></div>
+<div class="test"></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo test"></div>
+<div></div>
+<div class="demo"></div>
+<div class="test test1"></div>
+
+<script>
+    //项目需求：封装一个函数，能找到对应的class名叫"demo"的选择器
+
+    //方法名。声明一个变量（找到页面所有的标签）
+    //从变量[是个数组，所以记得循环]里面去提取所有的class的名字。
+    //因为className取到的是class=""等号后面的所有整体作为一个字符串，所以需要用空格拆分
+    //拆分出来是数组，所以需要再循环，去拆分的内容里面找和"demo"对应的字符串
+    //找到符合规则的字符串之后，发送 包含符合字符的 标签选择器
+    //在方法的最后，返回找到的结果出来
+
+    function getClass(x) {
+        var arr=[]
+        var tagName = document.getElementsByTagName("*")
+
+        for(i=0;i<tagName.length;i++){
+            //循环的是所有的标签
+            var childClass=tagName[i].className.split(" ")
+
+            for (j=0;j<childClass.length;j++){
+                //循环的是所有的class，通过判断class是否和参数相等
+                //从而筛出对应的选择器（也就是一级循环的那个选择器）
+
+                if(childClass[j] == x){
+                    console.log(tagName[i])
+                    arr.push(tagName[i])
+                }
+            }
+        }
+        return arr
+    }
+
+ getClass("test")
+
+
+
+
+
+    // function getClass(x) {
+    //     //判断浏览器是否支持
+    //     // if (document.getElementsByClassName) {
+    //     //     return document.getElementsByClassName(x);
+    //     // }
+    //
+    //
+    //     var arr = [];
+    //     var dom = document.getElementsByTagName("*");
+    //
+    //     for (var i = 0; i < dom.length; i++) {
+    //         var txtArr = dom[i].className.split(" ");
+    //         console.log(txtArr)
+    //
+    //         for (var j = 0; j < txtArr.length; j++) {
+    //             if (txtArr[j] == "demo") {
+    //                 arr.push(dom[i]);
+    //             }
+    //         }
+    //     }
+    //     return arr;
+    // }
+    // console.log(getClass("demo"))
+
+</script>
+</body>
+</html>

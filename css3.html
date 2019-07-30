@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<button>点我1</button>
+<button>点我2</button>
+<button>点我3</button>
+<body>
+    <script>
+
+var lis=document.getElementsByTagName("button");
+        for(let i=0;i<lis.length;i++){
+            lis[i].onclick=function () {
+                console.log(i)
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

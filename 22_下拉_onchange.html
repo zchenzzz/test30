@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-image: url('images/roma.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<select name="" id="bg">
+    <option value="roma">罗马</option>
+    <option value="venice">威尼斯</option>
+    <option value="castle">新天鹅堡</option>
+    <option value="lucerne">卢塞恩</option>
+</select>
+
+<script>
+
+    var bg = document.getElementById("bg");
+    bg.onchange = function () {
+        document.body.style.backgroundImage = "url(images/"+this.value+".jpg)";
+    }
+
+</script>
+</body>
+</html>

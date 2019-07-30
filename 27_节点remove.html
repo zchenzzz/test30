@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<div id="demo">
+    <div id="hello">
+        <div class="xxx">cc</div>
+    </div>
+</div>
+
+
+<script>
+
+    var demo = document.getElementById("demo");
+    var hello = document.getElementById("hello");
+    // demo.removeChild(hello)
+
+
+    //cloneNode(true)，深复制，包含子元素
+
+    demo.appendChild(demo.children[0].cloneNode(true))
+    // document.body.appendChild(demo.cloneNode(true))
+    demo.parentNode.appendChild(demo.cloneNode())  //给自己加一个兄弟元素
+
+</script>
+</body>
+</html>

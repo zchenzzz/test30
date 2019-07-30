@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button>全选</button>
+<button>反选</button>
+<button>取消</button>
+
+<ul id="chk">
+    <li><input type="checkbox" checked>选项</li>
+    <li><input type="checkbox">选项</li>
+    <li><input type="checkbox">选项</li>
+    <li><input type="checkbox">选项</li>
+    <li><input type="checkbox">选项</li>
+    <li><input type="checkbox">选项</li>
+    <li><input type="checkbox">选项</li>
+</ul>
+
+<script>
+
+    //点击之后，遍历所有的checkbox，然后分别加上checked属性
+    var btns = document.getElementsByTagName("button");
+
+    var checkboxes = document.getElementById('chk').getElementsByTagName('input');
+
+    btns[0].onclick = function () {
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true
+        }
+    }
+
+    btns[1].onclick = function () {
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = !checkboxes[i].checked
+        }
+    }
+    btns[2].onclick = function () {
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false
+        }
+    }
+</script>
+
+</body>
+</html>

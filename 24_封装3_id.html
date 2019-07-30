@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #08c;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div></div>
+<div class="demo"></div>
+<div class="test"></div>
+<div></div>
+<div></div>
+
+<div id="one">
+    <div class="demo"></div>
+    <div class="demo test"></div>
+    <div></div>
+    <div class="demo"></div>
+</div>
+
+<script>
+    function getClass(classname, id) {
+        //判断浏览器是否支持
+        // if (document.getElementsByClassName) {
+        //     if (id) {
+        //         return document.getElementById(id).getElementsByClassName(classname);
+        //     }
+        //     return document.getElementsByClassName(classname);
+        // }
+
+        if (id) {
+            var eleId = document.getElementById(id);
+            var dom = eleId.getElementsByTagName("*");
+        } else {
+            var dom = document.getElementsByTagName("*");
+        }
+
+        var arr = [];
+        for (var i = 0; i < dom.length; i++) {
+
+            var txtArr = dom[i].className.split(" ");
+            // console.log(txtArr)
+
+            for (var j = 0; j < txtArr.length; j++) {
+                if (txtArr[j] == classname) {
+                    arr.push(dom[i]);
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(getClass("test").length)
+</script>
+</body>
+</html>

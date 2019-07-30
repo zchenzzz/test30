@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(images/h5.jpg);
+        }
+        .box {
+            height: 100px;
+            background: rgba(255,255,255,.5);
+            text-align: center;
+            padding-top: 10px;
+
+        }
+        .box img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bo">
+    <div class="box">
+        <img src="images/h5.jpg" alt="" width="200" id="pic1">
+        <img src="images/js.jpg" alt="" width="200" id="pic2">
+    </div>
+
+</body>
+
+<script>
+    //当页面加载完毕之后再执行
+    window.onload = function () {
+        var pic1 = document.getElementById("pic1");
+        var pic2 = document.getElementById("pic2");
+        pic1.onclick = function(){
+            document.body.style.backgroundImage = "url(images/h5.jpg)";
+        }
+
+        pic2.onclick = function(){
+            document.body.style.backgroundImage = "url(images/js.jpg)";
+        }
+    }
+
+</script>
+</html>

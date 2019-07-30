@@ -1,0 +1,51 @@
+
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title></title>
+
+</head>
+
+<body>
+
+<div id="bg">
+
+    <div id="btn">
+
+        <div id="txt">试客小兵</div>
+
+        <img id="img" src="https://images.itfun.tv/photo/2017/eba4bebb4c7520bca5b21d9c5276f763.jpg">
+
+    </div>
+
+</div>
+
+<script>
+
+
+    window.onload=function(){
+        var Imgbtn=document.getElementById('btn');
+        var Img=document.getElementById('img');
+
+        Imgbtn.onclick=function(){
+            console.log(Img.src)
+            if(Img.src=='https://images.itfun.tv/photo/2017/eba4bebb4c7520bca5b21d9c5276f763.jpg')            {
+                Img.src='https://images.itfun.tv/photo/2018/ab2426cea21fc3d3ff851e08ee084eb3.jpg';
+            }else{
+                Img.src='https://images.itfun.tv/photo/2017/eba4bebb4c7520bca5b21d9c5276f763.jpg'
+            }
+        }
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>

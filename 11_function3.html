@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #08c;
+            margin-top: 6px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn1" onclick="fn(1);">按钮1</button>
+<button class="btn2" onclick="fn(2);">按钮2</button>
+<button class="btn3" onclick="fn(3);">按钮3</button>
+<button class="btn4" onclick="fn(4);">按钮4</button>
+
+<div id="demo1">1</div>
+<div id="demo2">2</div>
+<div id="demo3">3</div>
+<div id="demo4">4</div>
+
+<script>
+
+
+    //参数
+
+
+
+
+    //自己封装一个$符号
+	function $(id){
+        return document.getElementById(id);
+    }
+
+	//函数名后面的小括号，用于传递参数
+	function fn(num){
+    // 带参数的函数调用：小括号里面有参数，小括号外面是方法名字
+        $('demo'+num).style.display = "block";
+	}
+
+
+        function $(x) {
+            return document.getElementById(x)
+        }
+
+        function fn(num) {
+            $("demo"+num).style.display="block"
+        }
+
+
+
+	// 1.点击触发fn
+    // 2、作为参数传进来  fn(3)
+    // 3.num参数 = 3
+    // 4.使用num参数 用'demo1'作为参数调用$()
+    // 5.函数内给我返回document.getElementById('demo3')
+    // 6.对选择器进行一个样式更改的操作
+
+
+
+
+</script>
+
+</body>
+</html>

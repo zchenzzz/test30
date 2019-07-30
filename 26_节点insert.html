@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<div id="demo">
+    <div id="hello"></div>
+    <div>123</div>
+</div>
+
+<script>
+
+    var demo = document.getElementById("demo");
+
+    //创建节点
+    // var firstDiv = document.createElement("div");
+    // // firstDiv.innerHTML = "你好"
+    // demo.appendChild(firstDiv)
+
+    var xx = document.createElement("div");
+    xx.innerHTML = "你好"
+    var demo_children = demo.children;
+
+    // 被放入的容器.insertBefore(被发送的对象, 用来作参考位置的对象)
+
+    // demo.insertBefore(xx, demo_children[1])
+    //
+    //
+    // //null，默认放到最后
+    // demo.insertBefore(xx, null)
+
+
+</script>
+</body>
+</html>

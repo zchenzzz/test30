@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    //外层声明的，全局变量
+    var num = 10;
+
+    function demo(){
+
+        //函数内部没写var，全局变量
+        result = 20;
+
+        //内部声明，有var，局部变量
+        var num = 30;
+        console.log(num);
+    }
+
+    demo();
+    console.log(result);
+    console.log(num)
+
+
+</script>
+</body>
+</html>

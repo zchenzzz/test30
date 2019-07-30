@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #08c;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div></div>
+<div class="demo"></div>
+<div class="test"></div>
+<div></div>
+<div></div>
+<div class="demo test"></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div></div>
+
+<script>
+    //1.创建一个方法。先声明一个变量用来装所有的标签选择器
+    //2.遍历一下这个变量，去里面找对应的className
+    //3.找到之后将对应的那个选择器push到一个新数组
+    //4.方法内返回这个新数组
+    //最后在需要找到class标签的时候，只需要把对应的class名字作为参数传到方法内部就好了
+
+    //低版本ie不兼容6、8
+    // var dom = document.getElementsByClassName("demo");
+    // console.log(dom.length);
+    function getClass(demo) {
+        var arr = [];
+
+        var dom = document.getElementsByTagName("*");
+
+        console.log(dom)
+        for (var i = 0; i < dom.length; i++) {
+            if (dom[i].className == demo) {
+                //往空的数组发送找的满足条件的那些div
+                arr.push(dom[i]);
+            }
+        }
+
+        return arr;
+    }
+
+    // getClass("demo")
+    console.log(getClass("demo"))
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+父节点
+parentNode
+
+同辈
+nextSibling(ie 678支持)
+nextElementSibling
+previousSibling(ie 678支持)
+previousElementSibling
+
+子节点
+firstChild(ie 678支持)
+firstElementChild （不推荐）
+lastChild(ie 678支持)
+lastElementChild
+
+所有子节点
+childNodes（标准属性，高级浏览器，会把换行也当成节点）
+children（只找元素节点，ie678，会把注释也算进去）
+
+
+<ul>
+    <li></li>
+    <li></li>
+</ul>
+
+<script>
+    // var one = document.getElementById("one");
+    // var div = one.nextElementSibling || one.nextSibling;
+    // div.style.backgroundColor = "#08c";
+
+
+    var ul = document.getElementsByTagName("ul")[0];
+
+    // ul.firstElementChild.style.color = "red";
+    //childNodes
+    var ul_children = ul.childNodes
+
+    var len =0;
+    var arr=[]
+
+    for (var i = 0; i < ul_children.length; i++) {
+        if (ul_children[i].nodeType == 1) {
+            arr.push(ul_children[i])
+        }
+    }
+    console.log(arr);
+
+    // //children
+    // console.log(ul.children.length)
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        #box {
+            height: 70px;
+            width: 360px;
+            padding-top: 360px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            background: url(images/li01big.jpg) no-repeat;
+        }
+        #box ul {
+            overflow: hidden;
+            border-top: 1px solid #ccc;
+        }
+
+        #box li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li id="li01"><img src="images/01.jpg" alt=""/></li>
+        <li id="li02"><img src="images/02.jpg" alt=""/></li>
+        <li id="li03"><img src="images/03.jpg" alt=""/></li>
+        <li id="li04"><img src="images/04.jpg" alt=""/></li>
+        <li id="li05"><img src="images/05.jpg" alt=""/></li>
+    </ul>
+</div>
+<script>
+    // 1.封装一个便捷的选择器$()方法
+    // 2.封装第二个方法：接收到对应id和背景bg参数之后，滑到对应id选择器，则对应更改背景图
+    // 3.写好5个id对应的调用，调用的时候传对应的背景图参数
+
+        function $(x) {
+            return document.getElementById(x)
+        }
+
+        function fun(id, bg) {
+            $(id).onmouseover = function () {
+                $("box").style.backgroundImage = bg
+            }
+        }
+
+        fun("li01", "url(images/li01big.jpg)");
+        fun("li02", "url(images/li02big.jpg)");
+        fun("li03", "url(images/li03big.jpg)");
+        fun("li04", "url(images/li04big.jpg)");
+        fun("li05", "url(images/li05big.jpg)");
+
+
+</script>
+</body>
+</html>

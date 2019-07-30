@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="">
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <input type="text" id="num3">
+
+    <button id="button">计算</button>
+</form>
+
+
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    var button = document.getElementsByTagName("button")[0];
+
+    button.onclick = function () {
+
+        var num1 = parseInt($("num1").value);
+        var num2 = parseInt($("num2").value);
+        var num3 = parseInt($("num3").value);
+
+        var max = num1;
+
+        if (num2 > max) {
+            max = num2;
+        }
+
+        if (num3 > max) {
+            max = num3;
+        }
+        console.log(max);
+
+        return false;
+    }
+</script>
+</body>
+</html>

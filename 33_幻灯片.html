@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .slide {
+            width: 600px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+            height: 260px;
+        }
+
+        .slide ul.imgs {
+            width: 5000px;
+            position: absolute;
+        }
+
+        .slide ul.imgs li {
+            float: left;
+        }
+
+        .ctrl {
+            font-size: 24px;
+        }
+
+        .ctrl .prev, .ctrl .next {
+            cursor: pointer;
+            position: absolute;
+            top: 110px;
+            padding: 16px 10px;
+            color: rgba(0, 0, 0, .5);
+        }
+
+        .ctrl .prev {
+            left: 0px;
+        }
+
+        .ctrl .next {
+            right: 0px;
+        }
+
+        .ctrl .prev:hover, .ctrl .next:hover {
+            background: rgba(0, 0, 0, .1);
+            color: #fff;
+        }
+
+        .dot {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            z-index: 1;
+            width: 600px;
+        }
+
+        .dot span {
+            display: inline-block;
+            bottom: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            margin: 0 4px;
+            background: rgba(0, 0, 0, .3);
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .dot span.hover {
+            width: 28px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+
+<body>
+<div class="slide">
+    <ul class="imgs">
+        <li><img src="images/js.jpg" alt=""></li>
+        <li><img src="images/php.jpg" alt=""></li>
+        <li><img src="images/h5.jpg" alt=""></li>
+        <li><img src="images/rails.jpg" alt=""></li>
+        <li><img src="images/css.jpg" alt=""></li>
+    </ul>
+
+    <div class="ctrl">
+        <div class="prev"> &lt;</div>
+        <div class="next"> &gt;</div>
+    </div>
+
+    <div class="dot">
+        <span class="hover"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<script>
+    //绑定点击事件（分析点左右按钮的不同，index++ 或index——）
+    //先写右边按钮，判断index++到最后一张之后跳回第一张
+    //写好index一张应该跳多少，然后乘于自增的数量
+    //对应的小圆点也加上样式：先遍历所有的圆点选择器，清空所有样式，然后给对应的index的圆点加上特殊样式
+    //反方向自定义一个定时器也一样写（index--即可）
+    //滑到圆点上清除定时执行，否则依然设置定时执行
+    //点击小圆点出现对应的图片（遍历圆点，取索引值，赋值给滑块的index）
+    
+    function $(str) {
+        var s = str.charAt(0);  //从固定位置取得并返回字符
+        var ss = str.substr(1);  //字符串截取
+        switch (s) {
+            case "#":
+                return document.getElementById(ss);
+                break;
+            case ".":
+                return document.getElementsByClassName(ss);
+                break;
+            default :
+                return document.getElementsByTagName(str);
+        }
+    }
+
+    var slide = $(".slide")[0];
+    var prev = $(".prev")[0];
+    var next = $(".next")[0];
+    var img = $(".imgs")[0];
+    var lis = $("li");
+    var spans = $("span");
+
+    var index = 0;
+    var running = false;  //定义一个是否在定时执行动画的状态
+
+    //动画
+    var run = function () {
+        index = index >= lis.length ? 0 : index;  //判断到第五张之后再按紧接着跳回第一张
+
+        index = index < 0 ? lis.length - 1 : index; //判断从第一张再按一下紧接着退回第五张
+
+        running = true
+
+        var target = -600 * index;
+        timer = setInterval(function () {
+            // 盒子本身的位置  +  步长 (不断变化的)
+            var step = (target - img.offsetLeft) / 10;   // 步长
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);  // 步长取整
+
+            img.style.left = img.offsetLeft + step + "px";
+            if (img.offsetLeft == target) // 判断结束条件
+            {
+                clearInterval(timer);
+                running = false
+            }
+        }, 20)
+
+        //小圆点对应
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].className = "";
+        }
+        spans[index].className = "hover";
+    }
+
+    var play = function () {
+        if (!running) {
+            index++;
+            run()
+        }
+    }
+
+    //向后
+    next.onclick = function () {
+        if (!running) {
+            index++;
+            run()
+        }
+    }
+
+
+    prev.onclick = function () {
+        if (!running) {
+            index--;
+            run();
+        }
+    }
+    var autoplay = setInterval(play, 2000);
+    //小圆点点击
+    for (var i = 0; i < spans.length; i++) {
+        spans[i].x = i;
+
+        spans[i].onclick = function () {
+            clearInterval(autoplay)
+            if (!running) {
+                index = this.x
+                run();
+            }
+        }
+        spans[i].onmouseenter = function () {
+            clearInterval(autoplay);
+        }
+        spans[i].onmouseout = function () {
+            autoplay = setInterval(play, 500);
+        }
+    }
+
+
+</script>
+</body>
+</html>

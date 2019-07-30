@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .hover {
+            background-color: #08c !important;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+
+<ul>
+    <li class="xxxxx">小皮皮今天吃了好多东西</li>
+    <li>小皮皮今天吃了好多东西</li>
+    <li>小皮皮今天吃了好多东西</li>
+    <li>小皮皮今天吃了好多东西</li>
+    <li>小皮皮今天吃了好多东西</li>
+    <li>小皮皮今天吃了好多东西</li>
+</ul>
+
+<script>
+
+    var lis = document.getElementsByTagName('li');
+
+    for (i = 0; i < lis.length; i++) {
+        if (i % 2 == 0) {
+            lis[i].style.backgroundColor = '#ddd';
+        }
+        lis[i].onmouseover = function () {
+            this.className = 'hover';
+        }
+        lis[i].onmouseleave = function () {
+            this.className = '';
+        }
+    }
+
+
+</script>
+</body>
+</html>
